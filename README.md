@@ -1,44 +1,48 @@
-# Job Application Rejection Analysis: "Because 2024 Job Hunting is a Bloodsport"
+# Job Application Analysis
 
-### "In 2024, the job market is so brutal that we're training a model on my rejections. Here's what we came up with."
+ML-powered analysis of job application data to identify rejection patterns and generate actionable insights.
 
-This project is a survival guide (or at least an analytical one) to navigating the ruthless 2024 job market. We’re taking rejection after rejection, analyzing what we can, and trying to predict which factors lead to the dreaded “We’ve decided to go in a different direction” email.
+## Features
 
-In a world where ghosting isn’t just for dating and “we’ll keep your resume on file” is code for “better luck next time,” let’s try to make some sense of the chaos.
+- **Rejection Prediction** — Random Forest classification with 98%+ accuracy
+- - **Anomaly Detection** — Identifies unusual application patterns
+  - - **Automated Insights** — Quantifies impact of referrals, timing, and sources
+    - - **Visualizations** — Feature importance, industry trends, timeline analysis
+     
+      - ## Quick Start
+     
+      - ```bash
+        pip install -r requirements.txt
+        python jobappanalysis.py -i your_data.xlsx -o results.xlsx
+        ```
 
-## Project Overview
+        ## Input Format
 
-### Goals
-1. **Predictive Modeling**: Train a model to (hopefully) predict rejection patterns, because if we’re going to be rejected, we might as well see it coming.
-2. **Anomaly Detection**: Spot the outliers – those applications where something unexpected (good or bad) happened, because why not spice it up with some detective work?
+        Excel file with sheets `2024`, `2025` containing columns:
+        - Company, Job Title, Application Date
+        - - Screening, Interview, Final Round, Rejected, Offer (dates)
+          - - Interval, Application Source, Referral, Resume Version
+            - - Industry, Seniority Level, Cover Letter
+             
+              - ## Output
+             
+              - - `JobAppResults.xlsx` — Summary metrics, insights, predictions, anomalies
+                - - `plots/` — Feature importance, outcomes by source, rejection by industry
+                 
+                  - ## CLI Options
+                 
+                  - ```
+                    -i, --input         Input Excel path
+                    -o, --output        Output Excel path
+                    --plots-dir         Visualization directory
+                    --no-plots          Skip plot generation
+                    --contamination     Anomaly sensitivity (default: 0.1)
+                    ```
 
-### Features Analyzed
-We’re taking a hard look at:
-- **Company**: Encoded identifier for where dreams went to die.
-- **Job Title**: The role we thought we were qualified for.
-- **Phase 2**: Binary indicator of whether we made it to the second interview phase, or got a swift “no.”
-- **Interval**: The time it took for the heartbreak email to arrive.
-- **Application Source**: LinkedIn, Indeed, a referral, or maybe a shot in the dark.
-- **Resume Version**: Different versions of the resume, just in case the “edgy” one wasn’t the right call.
+                    ## Requirements
 
-## Project Structure
+                    Python 3.10+, pandas, numpy, scikit-learn, matplotlib, seaborn, openpyxl
 
-- **jobappanalysis.py**: The code that does all the heavy lifting:
-  - Loads the data and processes it.
-  - Trains a model to predict rejection (so we don’t have to guess).
-  - Detects anomalies, because even in rejection, some applications stand out.
-  - Saves results in `JobAppResults.xlsx`, for the record.
+                    ## License
 
-- **JobAppData.xlsx**: The infamous data – all the applications, hopeful follow-ups, and subsequent rejections.
-
-- **JobAppResults.xlsx**: The output file, where you’ll find:
-  - Predictions of rejection (because what’s one more heartbreak).
-  - Anomalies in the data, flagged for extra intrigue.
-
-## Dependencies
-
-Install these libraries to get started:
-
-```bash
-pip install pandas scikit-learn openpyxl matplotlib seaborn xlwings
-# jobappanalysis
+                    MIT
