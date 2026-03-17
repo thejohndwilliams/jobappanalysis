@@ -1,6 +1,6 @@
 # Job Application Analysis
 
-An ML pipeline for analyzing job application outcomes at scale. Built to answer a practical question: across 580+ applications over 22 months, what actually predicts whether you get screened, interviewed, or rejected — and what doesn't matter at all?
+An ML pipeline for analyzing job application outcomes at scale. Built to answer a practical question: across 580+ applications over 22 months, what actually predicts whether you get screened, interviewed, or rejected, and what doesn't matter at all?
 
 This isn't a toy project. It processes real application data and surfaces findings that contradict conventional job search wisdom (e.g., cover letters correlating with *lower* interview rates, referrals being 8x more effective than cold applications).
 
